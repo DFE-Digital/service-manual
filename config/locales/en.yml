@@ -4,21 +4,21 @@ en-GB:
     cookies_policy: Cookies
 
   page_titles:
-    default: Service Manual (Prototype)
-    home_index: DfE Service Manual - Home
-    pages_cookies_policy: DfE Service Manual - Cookies policy
-    pages_privacy_policy: DfE Service Manual - Privacy policy
-    pages_accessibility_statement: DfE Service Manual - Accessibility
-    pages_terms_and_conditions: DfE Service Manual - Terms and Conditions
-    errors_not_found: DfE Service Manual - Not found
-    errors_unprocessable_entity: DfE Service Manual - Unprocessable entity
-    errors_internal_server_error: DfE Service Manual - Internal server error
+    default: DfE service manual
+    home_index: DfE service manual - Home
+    pages_cookies_policy: DfE service manual - Cookies policy
+    pages_privacy_policy: DfE service manual - Privacy policy
+    pages_accessibility_statement: DfE service manual - Accessibility
+    pages_terms_and_conditions: DfE service manual - Terms and Conditions
+    errors_not_found: DfE service manual - Not found
+    errors_unprocessable_entity: DfE service manual - Unprocessable entity
+    errors_internal_server_error: DfE service manual - Internal server error
 
   pages:
     cookies_policy:
       title: Cookies
     privacy_policy:
-      title: Privacy policy for DfE Service Manual
+      title: Privacy policy for DfE service manual
     information_sources:
       title: Information sources
     accessibility_statement:
@@ -30,7 +30,7 @@ en-GB:
     body: Take a quick survey and tell us about your experience
 
   flipflop:
-    title: DfE Service Manual features
+    title: DfE service manual features
     feature: Feature
     clear: clear
     description: Description
