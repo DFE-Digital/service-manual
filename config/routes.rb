@@ -22,8 +22,6 @@ Rails.application.routes.draw do
   get '/422', to: 'errors#unprocessable_entity', via: :all
   get '/500', to: 'errors#internal_server_error', via: :all
 
-  resources :feedback_surveys, only: %i[create]
-
   root to: 'home#index'
 end
 # rubocop:enable Metrics/BlockLength
