@@ -13,8 +13,9 @@
         <div class="govuk-grid-column-two-thirds">
           <h1 class="govuk-heading-xl govuk-!-margin-bottom-6 app-hero__heading--inverse"><%= @home.heading %></h1>
           <p class="govuk-body-lead app-hero-lead app-hero__body--inverse govuk-!-padding-bottom-1">
-            The DfE Service Manual documents the specific technology, tools and processes that DfE teams use to design and deliver digital services.
-            It’s not intended as guidance for anyone working outside DfE - you’ll find that in the <%= link_to 'GDS Service Manual', 'https://www.gov.uk/service-manual ', class: 'govuk-link' %>.
+            Use the DfE service manual to find specific guidance for building DfE digital services. It is not intended for use outside of DfE.
+            For cross-government guidance use the <%= link_to 'GDS service manual', 'https://www.gov.uk/service-manual', class: 'govuk-link' %>
+            and the <%= link_to 'GDS service standard', 'https://www.gov.uk/service-manual/service-standard', class: 'govuk-link' %>.
           </p>
           <form action="/manual/search" method="get" role="search">
             <%= render "govuk_publishing_components/components/search", {
@@ -46,22 +47,6 @@
         <% end %>
       </div>
     <% end %>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half">
-        <div class="panel govuk-!-padding-top-3 govuk-!-margin-top-5">
-          <h2 class="govuk-heading-m">GDS Service Manual</h2>
-          <p class="govuk-body app-body">The <%= link_to 'GDS Service Manual', 'https://www.gov.uk/service-manual ', class: 'govuk-link' %> explains what teams can do to create and run great services that will meet the GDS Service standard. It can be used together with this DfE Service Manual.</p>
-        </div>
-      </div>
-
-      <div class="govuk-grid-column-one-half">
-        <div class="panel govuk-!-padding-top-3 govuk-!-margin-top-5">
-          <h2 class="govuk-heading-m">GDS Service Standard</h2>
-          <p class="govuk-body app-body">The <%= link_to 'GDS Service Standard', 'https://www.gov.uk/service-manual/service-standard', class: 'govuk-link' %> provides the principles of building a great service. This manual is to help you meet the standard using the shared tools, technology and processes used at the DfE.</p>
-        </div>
-      </div>
     </div>
   </div>
 </div>
-
