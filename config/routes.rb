@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   get '/422', to: 'errors#unprocessable_entity', via: :all
   get '/500', to: 'errors#internal_server_error', via: :all
 
+  get '/help/cookies', to: 'cookies#preferences', as: :cookie_preferences
+  post '/cookies/create', to: 'cookies#create_preferences', as: :create_cookie_preferences
+
   root to: 'home#index'
 end
 # rubocop:enable Metrics/BlockLength
