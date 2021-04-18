@@ -1,0 +1,122 @@
+<div id="main-content" class="govuk-!-padding-bottom-7">
+   <script type="application/ld+json">
+      {"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"name":"Service manual","@id":"http://www.dev.gov.uk/"}}]}
+   </script>
+   <div class="gem-c-breadcrumbs govuk-breadcrumbs gem-c-breadcrumbs--collapse-on-mobile" data-module="track-click">
+      <ol class="govuk-breadcrumbs__list">
+         <li class="govuk-breadcrumbs__list-item" aria-current="false">
+            <a data-track-category="homeLinkClicked" data-track-action="homeBreadcrumb" data-track-label="" data-track-options="{}" class="govuk-breadcrumbs__link" aria-current="false" href="/">Service manual</a>
+         </li>
+         <li class="govuk-breadcrumbs__list-item" aria-current="false">
+            Cookies
+         </li>
+      </ol>
+   </div>
+   <div class="govuk-width-container">
+      <div class="govuk-grid-row">
+         <div class="govuk-grid-column-two-thirds">
+            <div class="app-page-header">
+               <div class="gem-c-title govuk-!-margin-top-8 govuk-!-margin-bottom-7">
+                  <h1 class="gem-c-title__text ">
+                     Cookies
+                  </h1>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="gem-c-metadata" data-module="gem-toggle">
+         <dl data-module="track-click">
+            <dt class="gem-c-metadata__term">Last updated:</dt>
+            <dd class="gem-c-metadata__definition">
+               12 months ago
+            </dd>
+         </dl>
+      </div>
+      <div class="govuk-grid-row">
+         <div class="govuk-grid-column-two-thirds">
+            <div class="govspeak-wrapper govuk-!-padding-top-2">
+               <div class="gem-c-govspeak govuk-govspeak " data-module="govspeak">
+                  <h2><a id="cookies">Cookies </a></h2>
+                  <p>
+                     This site puts small files (known as ‘cookies’) onto your computer to collect information about how you browse the site.
+                     Cookies are used to:
+                  </p>
+                  <ul>
+                     <li>
+                        <p>measure how you use the website so it can be updated and improved based on your needs</p>
+                     </li>
+                     <li>
+                        <p>remember the notifications you’ve seen so that we don’t show them to you again</p>
+                     </li>
+                  </ul>
+                  <p>Find out more about how to manage cookies.
+                     How cookies are used on this site
+                     Measuring website usage (Google Analytics)
+                     We use Google Analytics software (Universal Analytics) to collect information about how you use this site. We do this to help make sure the site is meeting the needs of its users and to help us make improvements, for example improving site search.
+                     Google Analytics stores information about:
+                     •	the pages you visit on this site
+                     •	how long you spend on each page
+                     •	how you got to the site
+                     •	what you click on while you’re visiting the site
+                     We do store this information with your personal information (for example your name or address) so this information can’t be used to identify who you are.
+                     We do not allow Google to use or share our analytics data.
+                     Google Analytics sets the following cookies.
+                     Name	Purpose	Expires
+                     _ga	This helps us count how many people visit this site by tracking if you’ve visited before	2 years
+                     _gid	This helps us count how many people visit this site by tracking if you’ve visited before	24 hours
+                     _gat	Used to manage the rate at which page view requests are made	10 minutes
+                     You can opt out of Google Analytics cookies.
+                     Our cookie message
+                     You may see a pop-up welcome message when you first visit the service. We’ll store a cookie so that your computer knows you’ve seen it and knows not to show it again.
+                     Name	Purpose	Expires
+                     seen_cookie_message	Saves a message to let us know that you’ve seen our cookie message	14 days
+                  </p>
+
+                  <%= form_with url: create_cookie_preferences_path, method: :post do |form| %>
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h3 class="govuk-fieldset__heading">
+                            Do you accept Google Analytics cookies?
+                          </h3>
+                        </legend>
+                        <div class="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <%= form.radio_button(
+                              :cookie_consent,
+                              true,
+                              id: 'cookie-consent-accept',
+                              class: 'govuk-radios__input',
+                              checked: cookies['cookies_preferences_set'] == 'true',
+                              data: { qa: 'cookie-consent-accept' },
+                            ) %>
+                            <label class="govuk-label govuk-radios__label" for="cookie-consent-accept">
+                              Yes, opt-in to Google Analytics cookies
+                            </label>
+
+                          </div>
+                          <div class="govuk-radios__item">
+                            <%= form.radio_button(
+                              :cookie_consent,
+                              false,
+                              id: 'cookie-consent-deny',
+                              class: 'govuk-radios__input',
+                              checked: cookies['cookies_preferences_set'] == 'false',
+                              data: { qa: 'cookie-consent-deny' },
+                            ) %>
+                            <label class="govuk-label govuk-radios__label" for="cookie-consent-deny">
+                              No, do not track my website usage
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <%= form.submit 'Save changes', name: nil, class: 'govuk-button', data: { qa: 'save-changes' } %>
+                  <% end %>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
