@@ -48,7 +48,7 @@
             <ul class="govuk-list">
               <% section.items.each do |item| %>
                 <li>
-                  <%= link_to item.heading, '/manual/' + @area.uri + '/' + section.uri + '/' + item.uri %>
+                  <%= link_to item.heading, '/manual/' + @area.uri + '/' + section.uri + '/' + item.uri, class: 'govuk-link' %>
                 </li>
               <% end %>
             </ul>
