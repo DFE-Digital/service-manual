@@ -89,8 +89,8 @@ class ManualController < ApplicationController
   end
 
   def search
-    section_results = Contentful::Section.search(heading: params['s']).load
-    item_results = Contentful::Item.all.params({"include" => 2}).search(heading: params['s']).load
+    section_results = Contentful::Section.search(heading: params['s']).load.reject { |section| section.area.nil? }
+    item_results = Contentful::Item.all.params({"include" => 2}).search(heading: params['s']).load.reject { |item| item.section.nil? || item.section.area.nil? }
     @search_string = params['s']
     @results = SearchResults.transform(section_results) + SearchResults.transform(item_results)
   end
