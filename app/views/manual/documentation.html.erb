@@ -44,4 +44,48 @@
       </div>
     </div>
   </div>
+
+  <% if @doc.heading == 'Cookies' %>
+    <%= form_with url: create_cookie_preferences_path, method: :post do |form| %>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h3 class="govuk-fieldset__heading">
+              Do you accept Google Analytics cookies?
+            </h3>
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <%= form.radio_button(
+                :cookie_consent,
+                true,
+                id: 'cookie-consent-accept',
+                class: 'govuk-radios__input',
+                checked: cookies['cookies_preferences_set'] == 'true',
+                data: { qa: 'cookie-consent-accept' },
+              ) %>
+              <label class="govuk-label govuk-radios__label" for="cookie-consent-accept">
+                Yes, opt-in to Google Analytics cookies
+              </label>
+
+            </div>
+            <div class="govuk-radios__item">
+              <%= form.radio_button(
+                :cookie_consent,
+                false,
+                id: 'cookie-consent-deny',
+                class: 'govuk-radios__input',
+                checked: cookies['cookies_preferences_set'] == 'false',
+                data: { qa: 'cookie-consent-deny' },
+              ) %>
+              <label class="govuk-label govuk-radios__label" for="cookie-consent-deny">
+                No, do not track my website usage
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <%= form.submit 'Save changes', name: nil, class: 'govuk-button', data: { qa: 'save-changes' } %>
+    <% end %>
+  <% end %>
 </div>

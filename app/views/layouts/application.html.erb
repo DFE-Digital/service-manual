@@ -25,9 +25,12 @@
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
     </script>
     <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
-    <%= render "govuk_publishing_components/components/cookie_banner", {
-      text: sanitize("We use <a href='/documentation/cookies-policy'>cookies to collect information</a> about how you use this site. We use this information to make the website work as well as possible and improve our service."),
-    } %>
+    <% unless request.env['PATH_INFO'] == "/documentation/cookies-policy" %>
+      <%= render "govuk_publishing_components/components/cookie_banner", {
+        text: sanitize("We use <a href='/documentation/cookies-policy'>cookies to collect information</a> about how you use this site. We use this information to make the website work as well as possible and improve our service."),
+        cookie_preferences_href: "/documentation/cookies-policy"
+      } %>
+    <% end %>
     <div id="govuk-header-container">
       <header class="govuk-header" role="banner" data-module="govuk-header" id="govuk-header">
         <div class="govuk-header__container govuk-width-container">
@@ -69,7 +72,7 @@
                   <%= link_to 'Privacy', '/documentation/privacy-policy', class: 'govuk-footer__link' %>
                 </li>
                 <li class="govuk-footer__inline-list-item">
-                  <%= link_to 'Cookies', '/help/cookies', class: 'govuk-footer__link' %>
+                  <%= link_to 'Cookies', '/documentation/cookies-policy', class: 'govuk-footer__link' %>
                 </li>
                 <li class="govuk-footer__inline-list-item">
                   <%= link_to 'Accessibility statement', '/documentation/accessibility-statement', class: 'govuk-footer__link' %>
