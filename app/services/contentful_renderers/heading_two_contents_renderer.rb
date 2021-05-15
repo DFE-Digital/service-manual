@@ -7,6 +7,7 @@ module ContentfulRenderers
       whole_heading = ''
 
       node['content'].each do |content|
+        return unless content['value'].present?
         whole_heading += content['value']
       end
 
