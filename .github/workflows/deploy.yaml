@@ -1,0 +1,24 @@
+name: deploy-to-paas
+
+on: 
+  push:
+    branches: 
+      - master
+
+jobs: 
+  deploy-to-paas:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Configure cf cli
+      uses: DFE-Digital/github-actions/setup-cf-cli@master
+      with: 
+        CF_USERNAME: ${{ secrets.CF_USERNAME }}
+        CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
+        CF_SPACE_NAME: sandbox
+
+    - name: Push to GOV.UK PaaS
+      run: cf push -b ruby_buildpack -c 'bundle exec rails server -b 0.0.0.0' --strategy rolling service-manual
