@@ -18,7 +18,7 @@ jobs:
       with: 
         CF_USERNAME: ${{ secrets.CF_USERNAME }}
         CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
-        CF_SPACE_NAME: sandbox
+        CF_SPACE_NAME: dfe-service-manual-prod
 
     - name: Push to GOV.UK PaaS
-      run: cf push -b ruby_buildpack -c 'bundle exec rails server -b 0.0.0.0' --strategy rolling service-manual
+      run: cf push -b ruby_buildpack -c 'bundle exec rails server -b 0.0.0.0' --strategy rolling service-manual-prod
