@@ -1,0 +1,22 @@
+---
+applications:
+- name: service-manual-manifest
+  memory: 512M
+  instances: 2
+  buildpacks:
+  - ruby_buildpack
+  command: bundle exec rails server -b 0.0.0.0
+  env:
+    GOVUK_APP_DOMAIN: www.gov.uk
+    GOVUK_WEBSITE_ROOT: https://www.gov.uk
+    LANG: en_US.UTF-8
+    RACK_ENV: production
+    RAILS_ENV: production
+    RAILS_LOG_TO_STDOUT: enabled
+    RAILS_SERVE_STATIC_FILES: enabled
+    CONTENTFUL_API_KEY: ((contentful_api_key))
+    CONTENTFUL_PREVIEW_API_KEY: ((contentful_preview_api_key))
+    CONTENTFUL_SPACE: ((contentful_space))
+    GOOGLE_ANALYTICS_TRACKING_ID: ((google_analytics_tracking_id))
+    SECRET_KEY_BASE: ((secret_key_base))
+
