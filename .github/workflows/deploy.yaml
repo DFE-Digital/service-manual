@@ -20,5 +20,14 @@ jobs:
         CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
         CF_SPACE_NAME: dfe-service-manual-prod
 
+    - name: Generate vars file
+      run: ./paas/generate_vars.sh
+      env: 
+        CONTENTFUL_API_KEY: ${{ secrets.CONTENTFUL_API_KEY }}
+        CONTENTFUL_PREVIEW_API_KEY: ${{ secrets.CONTENTFUL_PREVIEW_API_KEY }}
+        CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
+        GOOGLE_ANALYTICS_TRACKING_ID: ${{ secrets.GOOGLE_ANALYTICS_TRACKING_ID }}
+        SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+
     - name: Push to GOV.UK PaaS
-      run: cf push -b ruby_buildpack -c 'bundle exec rails server -b 0.0.0.0' --strategy rolling service-manual-prod
+      run: cf push --strategy rolling service-manual-prod
