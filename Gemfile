@@ -13,7 +13,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'govuk_publishing_components'
 
 # redcarpet for processing markdown
-gem 'redcarpet', '~> 3.5.0'
+gem 'redcarpet', '~> 3.5.1'
 
 # contentful headless CMS
 gem 'contentful', '~>2.15.2'
